@@ -157,6 +157,10 @@
 				RelativePath="..\..\..\..\corelibs++-api\include\naeem\db\driver.h"
 				>
 			</File>
+			<File
+				RelativePath="..\..\..\..\corelibs++-api\include\naeem\db\exception.h"
+				>
+			</File>
 			<Filter
 				Name="pgsql"
 				>
