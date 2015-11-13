@@ -4,49 +4,59 @@ namespace naeem {
   namespace db {
     namespace pgsql {
       Driver::Driver(ConnectionInfo &connectionInfo)
-		  : ::naeem::db::Driver(connectionInfo),
-            conn_(NULL) {
+		    : ::naeem::db::Driver(connectionInfo),
+          conn_(NULL) {
       }
-
       Driver::~Driver() {
         if (conn_) {
           PQfinish(conn_);
         }
       }
 
-      void
+      bool
       Driver::Open() {
+        if (conn_) {
+          Close();
+        }
         conn_ = PQconnectdb("dbname=test_db user=test_user password=12345 hostaddr=192.168.1.54");
         if (PQstatus(conn_) != CONNECTION_OK) {
-              fprintf(stderr, "Connection to database failed: %s",
-                      PQerrorMessage(conn_));
-              PQfinish(conn_);
-          exit(1);
-          }
+          fprintf(stderr, "Connection to database failed: %s",
+                  PQerrorMessage(conn_));
+          PQfinish(conn_);
+          conn_ = 0;
+          return false;
+        }
+        return true;
       }
-
-      void
+      bool
       Driver::Execute(std::wstring &query) {
+        if (!conn_) {
+          fprintf(stderr, "Query failed: Connection is not opened.\n");
+          return false;
+        }
         char queryStr[1024];
-          std::wcstombs(queryStr, query.c_str(), 1024);
+        std::wcstombs(queryStr, query.c_str(), 1024);
         PGresult *res = PQexec(conn_, queryStr);
         if (PQresultStatus(res) != PGRES_COMMAND_OK) {
-              fprintf(stderr, "Query failed: %s",
-                      PQerrorMessage(conn_));
-              PQclear(res);
-              PQfinish(conn_);
-          exit(1);
-          }
+          fprintf(stderr, "Query failed: %s",
+                  PQerrorMessage(conn_));
+          PQclear(res);
+          PQfinish(conn_);
+          conn_ = 0;
+          return false;
+        }
         printf("Query - OK\n");
         PQclear(res);
+        return true;
       }
-
-      void 
+      bool 
       Driver::Close() {
         if (conn_) {
           PQfinish(conn_);
           conn_ = 0;
+          return true;
         }
+        return false;
       }
     }
   }
