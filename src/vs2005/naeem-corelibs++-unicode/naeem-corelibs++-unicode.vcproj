@@ -2,9 +2,8 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="8.00"
-	Name="naeem-corelibs++-db"
-	ProjectGUID="{286DEBCD-13F5-40AC-A4CE-BFE7697188C6}"
-	RootNamespace="naeem-corelibs++-db"
+	Name="naeem-corelibs++-unicode"
+	ProjectGUID="{E9648B40-E157-4E56-934F-0956E0CB0E20}"
 	>
 	<Platforms>
 		<Platform
@@ -38,8 +37,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="&quot;..\..\..\..\external-apis\pq\include&quot;;&quot;..\..\..\..\corelibs++-api\include&quot;"
-				PreprocessorDefinitions="_CRT_SECURE_NO_DEPRECATE"
+				AdditionalIncludeDirectories="&quot;..\..\..\..\corelibs++-api\include&quot;"
 				RuntimeLibrary="3"
 			/>
 			<Tool
@@ -139,14 +137,10 @@
 			Filter="cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx"
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
-			<Filter
-				Name="pgsql"
+			<File
+				RelativePath="..\..\unicode\unicode.cc"
 				>
-				<File
-					RelativePath="..\..\db\pgsql\driver.cc"
-					>
-				</File>
-			</Filter>
+			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
@@ -154,17 +148,9 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath="..\..\..\..\corelibs++-api\include\naeem\db\driver.h"
+				RelativePath="..\..\..\..\corelibs++-api\include\naeem\unicode\unicode.h"
 				>
 			</File>
-			<Filter
-				Name="pgsql"
-				>
-				<File
-					RelativePath="..\..\..\..\corelibs++-api\include\naeem\db\pgsql\driver.h"
-					>
-				</File>
-			</Filter>
 		</Filter>
 		<Filter
 			Name="Resource Files"

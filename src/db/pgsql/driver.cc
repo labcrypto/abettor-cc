@@ -29,14 +29,12 @@ namespace naeem {
         return true;
       }
       bool
-      Driver::Execute(std::wstring &query) {
+      Driver::Execute(const char *query) {
         if (!conn_) {
           fprintf(stderr, "Query failed: Connection is not opened.\n");
           return false;
         }
-        char queryStr[1024];
-        std::wcstombs(queryStr, query.c_str(), 1024);
-        PGresult *res = PQexec(conn_, queryStr);
+        PGresult *res = PQexec(conn_, query);
         if (PQresultStatus(res) != PGRES_COMMAND_OK) {
           fprintf(stderr, "Query failed: %s",
                   PQerrorMessage(conn_));
