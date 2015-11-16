@@ -1,5 +1,8 @@
+#include <iostream>
+
 #include <naeem/db/pgsql/driver.h>
 #include <naeem/db/exception.h>
+
 
 namespace naeem {
   namespace db {
@@ -35,9 +38,9 @@ namespace naeem {
         }
         PGresult *res = PQexec(conn_, query);
         if (PQresultStatus(res) != PGRES_COMMAND_OK) {
-          char message[256];
+          char message[1024];
           sprintf(message, "Query failed: %s", PQerrorMessage(conn_));
-          PQclear(res);
+          // PQclear(res);
           PQfinish(conn_);
           conn_ = 0;
           throw ::naeem::db::Exception(message);
