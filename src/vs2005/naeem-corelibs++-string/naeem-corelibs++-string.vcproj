@@ -2,8 +2,8 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="8.00"
-	Name="naeem-corelibs++-unicode"
-	ProjectGUID="{E9648B40-E157-4E56-934F-0956E0CB0E20}"
+	Name="naeem-corelibs++-string"
+	ProjectGUID="{B0C7B4E6-276F-4E43-8520-5F50A1E6AA03}"
 	>
 	<Platforms>
 		<Platform
@@ -37,7 +37,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="&quot;..\..\..\..\corelibs++-api\include&quot;"
+				AdditionalIncludeDirectories="..\..\..\..\corelibs++-api\include"
 				RuntimeLibrary="3"
 			/>
 			<Tool
@@ -92,7 +92,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="&quot;..\..\..\..\corelibs++-api\include&quot;"
+				AdditionalIncludeDirectories="..\..\..\..\corelibs++-api\include"
 				RuntimeLibrary="2"
 			/>
 			<Tool
@@ -133,7 +133,7 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath="..\..\unicode\unicode.cc"
+				RelativePath="..\..\string\helper.cc"
 				>
 			</File>
 		</Filter>
@@ -143,7 +143,7 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath="..\..\..\..\corelibs++-api\include\naeem\unicode\unicode.h"
+				RelativePath="..\..\..\..\corelibs++-api\include\naeem\string\helper.h"
 				>
 			</File>
 		</Filter>
