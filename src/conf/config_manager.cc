@@ -4,6 +4,7 @@
 #include <sstream>
 #include <string>
 #include <fstream>
+#include <algorithm>
 
 #include <naeem++/conf/config_manager.h>
 #include <naeem++/string/helper.h>
@@ -117,6 +118,19 @@ namespace conf {
     }
     std::map<std::string, std::string> *m = GetSection(section);
     return (*m)[entry];
+  }
+  bool
+  ConfigManager::GetValueAsBoolean(std::string section, std::string entry) {
+    if (!HasValue(section, entry)) {
+      return "";
+    }
+    std::map<std::string, std::string> *m = GetSection(section);
+    std::string val = (*m)[entry];
+    std::transform(val.begin(), val.end(), val.begin(), ::tolower);
+    if (val == "false" || val == "f" || val == "0") {
+      return false;
+    }
+    return true;
   }
   void
   ConfigManager::Print() {
