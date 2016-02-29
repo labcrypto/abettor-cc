@@ -1,9 +1,13 @@
+#include <string.h>
+
+#include <sstream>
 #include <algorithm>
 #include <functional> 
 #include <cctype>
 #include <locale>
 
-#include <naeem/string/helper.h>
+#include <naeem++/compat/types.h>
+#include <naeem++/string/helper.h>
 
 
 namespace naeem {

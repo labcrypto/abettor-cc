@@ -1,7 +1,7 @@
 #include <iostream>
 
-#include <naeem/db/pgsql/driver.h>
-#include <naeem/db/exception.h>
+#include <naeem++/db/pgsql/driver.h>
+#include <naeem++/db/exception.h>
 
 
 namespace naeem {
