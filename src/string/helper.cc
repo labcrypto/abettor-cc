@@ -11,7 +11,7 @@ namespace naeem {
     namespace helper {
       bool 
       StartsWith(std::string &str, 
-                 std::string &s) {
+                 std::string s) {
         const char *strCharArray = str.c_str();
         const char *sCharArray = s.c_str();
         return strncmp((char *)sCharArray, (char *)strCharArray, strlen(sCharArray)) == 0;
@@ -64,7 +64,6 @@ namespace naeem {
       Trim(std::string &s) {
         return LeftTrim(RightTrim(s));
       }
-
     }
   }
 }
