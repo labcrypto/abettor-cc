@@ -1,7 +1,7 @@
 #include <iostream>
+#include <stdexcept>
 
 #include <naeem++/db/pgsql/driver.h>
-#include <naeem++/db/exception.h>
 
 
 namespace naeem {
@@ -41,13 +41,13 @@ namespace naeem {
           sprintf(message, "Connection to database failed: %s", PQerrorMessage(conn_));
           PQfinish(conn_);
           conn_ = 0;
-          throw ::naeem::db::Exception(message);
+          throw std::runtime_error(message);
         }
       }
       void
       Driver::Execute(const char *query) {
         if (!conn_) {
-          throw new ::naeem::db::Exception("Query failed: Connection is not opened.");
+          throw std::runtime_error("Query failed: Connection is not opened.");
         }
         PGresult *res = PQexec(conn_, query);
         if (PQresultStatus(res) != PGRES_COMMAND_OK) {
@@ -56,15 +56,19 @@ namespace naeem {
           // PQclear(res);
           PQfinish(conn_);
           conn_ = 0;
-          throw ::naeem::db::Exception(message);
+          throw std::runtime_error(message);
         }
         printf("Query - OK\n");
         PQclear(res);
       }
       void
+      Driver::Execute(const char *query, std::vector<Data> &data) {
+        Execute(query);
+      }
+      void
       Driver::Execute(const char *query, std::vector<Row*> &rows) {
         if (!conn_) {
-          throw new ::naeem::db::Exception("Query failed: Connection is not opened.");
+          throw std::runtime_error("Query failed: Connection is not opened.");
         }
         PGresult *res = PQexec(conn_, query);
         if (PQresultStatus(res) != PGRES_TUPLES_OK) {
@@ -73,7 +77,7 @@ namespace naeem {
           // PQclear(res);
           PQfinish(conn_);
           conn_ = 0;
-          throw ::naeem::db::Exception(message);
+          throw std::runtime_error(message);
         }
         printf("Query - OK\n");
         uint16_t nfields = PQnfields(res);
@@ -86,6 +90,10 @@ namespace naeem {
           rows.push_back(row);
         }
         PQclear(res);
+      }
+      void
+      Driver::Execute(const char *query, std::vector<Data> &data, std::vector<Row*> &rows) {
+        // TODO
       }
       void 
       Driver::Close() {
