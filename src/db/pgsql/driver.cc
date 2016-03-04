@@ -61,17 +61,17 @@ namespace naeem {
         PQclear(res);
       }
       void
-      Driver::Execute(const char *query, std::vector<Data> &data) {
+      Driver::Execute(const char *query, std::vector<Data*> &data) {
         if (!conn_) {
           throw std::runtime_error("Connection is not opened.");
         }
         const char *values[10];
         for (uint32_t i = 0; i < data.size() && i < 10; i++) {
-          values[i] = (char *)data[i].GetData();
+          values[i] = (char *)data[i]->GetData();
         }
         int lengths[10] = {0};
         for (uint32_t i = 0; i < data.size() && i < 10; i++) {
-          lengths[i] = data[i].GetLength();
+          lengths[i] = data[i]->GetLength();
         }
         int binaries[10] = {1};
         for (uint32_t i = 0; i < data.size() && i < 10; i++) {
@@ -112,7 +112,7 @@ namespace naeem {
           conn_ = 0;
           throw std::runtime_error(message);
         }
-        printf("Query - OK\n");
+        // printf("Query - OK\n");
         uint16_t nfields = PQnfields(res);
         uint16_t ntuples = PQntuples(res);
         for(uint16_t i = 0; i < ntuples; i++) {
@@ -129,17 +129,17 @@ namespace naeem {
         PQclear(res);
       }
       void
-      Driver::Execute(const char *query, std::vector<Data> &data, std::vector<Row*> &rows) {
+      Driver::Execute(const char *query, std::vector<Data*> &data, std::vector<Row*> &rows) {
         if (!conn_) {
           throw std::runtime_error("Connection is not opened.");
         }
         const char *values[10];
         for (uint32_t i = 0; i < data.size() && i < 10; i++) {
-          values[i] = (char *)data[i].GetData();
+          values[i] = (char *)data[i]->GetData();
         }
         int lengths[10] = {0};
         for (uint32_t i = 0; i < data.size() && i < 10; i++) {
-          lengths[i] = data[i].GetLength();
+          lengths[i] = data[i]->GetLength();
         }
         int binaries[10] = {1};
         for (uint32_t i = 0; i < data.size() && i < 10; i++) {
@@ -164,7 +164,7 @@ namespace naeem {
           conn_ = 0;
           throw std::runtime_error(message);
         }
-        printf("Query - OK\n");
+        // printf("Query - OK\n");
         uint16_t nfields = PQnfields(res);
         uint16_t ntuples = PQntuples(res);
         for(uint16_t i = 0; i < ntuples; i++) {
