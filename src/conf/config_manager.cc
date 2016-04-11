@@ -1,6 +1,7 @@
 #include <stdlib.h>
 
 #include <iostream>
+#include <stdexcept>
 #include <sstream>
 #include <string>
 #include <fstream>
@@ -91,14 +92,18 @@ namespace conf {
   std::map<std::string, std::string>*
   ConfigManager::GetSection(std::string section) {
     if (!HasSection(section)) {
-      return NULL;
+      std::stringstream ss;
+      ss << "Section '" << section << "' is not found.";
+      throw std::runtime_error(ss.str());
     }
     return values_[section];
   }
   uint32_t
   ConfigManager::GetValueAsUInt32(std::string section, std::string entry) {
     if (!HasValue(section, entry)) {
-      return 0;
+      std::stringstream ss;
+      ss << "Value '" << section << "." << entry << "' is not found.";
+      throw std::runtime_error(ss.str());
     }
     std::map<std::string, std::string> *m = GetSection(section);
     return strtoul((*m)[entry].c_str(), NULL, 0);
@@ -106,7 +111,9 @@ namespace conf {
   int32_t
   ConfigManager::GetValueAsInt32(std::string section, std::string entry) {
     if (!HasValue(section, entry)) {
-      return 0;
+      std::stringstream ss;
+      ss << "Value '" << section << "." << entry << "' is not found.";
+      throw std::runtime_error(ss.str());
     }
     std::map<std::string, std::string> *m = GetSection(section);
     return atol((*m)[entry].c_str());
@@ -114,7 +121,9 @@ namespace conf {
   std::string
   ConfigManager::GetValueAsString(std::string section, std::string entry) {
     if (!HasValue(section, entry)) {
-      return "";
+      std::stringstream ss;
+      ss << "Value '" << section << "." << entry << "' is not found.";
+      throw std::runtime_error(ss.str());
     }
     std::map<std::string, std::string> *m = GetSection(section);
     return (*m)[entry];
@@ -122,7 +131,9 @@ namespace conf {
   bool
   ConfigManager::GetValueAsBoolean(std::string section, std::string entry) {
     if (!HasValue(section, entry)) {
-      return "";
+      std::stringstream ss;
+      ss << "Value '" << section << "." << entry << "' is not found.";
+      throw std::runtime_error(ss.str());
     }
     std::map<std::string, std::string> *m = GetSection(section);
     std::string val = (*m)[entry];
