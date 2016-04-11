@@ -1,5 +1,5 @@
 PWD=$(shell pwd)
-cppFlags=-Wall -g -c -fPIC -I../../../corelibs++-api/include
+cppFlags=-Wall -g -c -fPIC -I../../corelibs++-api/include
 libName=libnaeem++-os
 majorVersion=1
 minorVersion=0
@@ -28,13 +28,13 @@ dynamic:
 	ln -s $(PWD)/.libs/$(libName).so.$(majorVersion).$(minorVersion) .libs/$(libName).so
 
 copy_to_api_dir:
-	cp .libs/$(libName).so.$(majorVersion).$(minorVersion) ../../../corelibs++-api/lib
-	cp .libs/$(libName).a.$(majorVersion).$(minorVersion) ../../../corelibs++-api/lib
-	rm -rf ../../../corelibs++-api/lib/$(libName).so.$(majorVersion)
-	rm -rf ../../../corelibs++-api/lib/$(libName).so
-	rm -rf ../../../corelibs++-api/lib/$(libName).a.$(majorVersion)
-	rm -rf ../../../corelibs++-api/lib/$(libName).a
-	ln -s $(PWD)/../../../corelibs++-api/lib/$(libName).so.$(majorVersion).$(minorVersion) ../../../corelibs++-api/lib/$(libName).so.$(majorVersion)
-	ln -s $(PWD)/../../../corelibs++-api/lib/$(libName).so.$(majorVersion).$(minorVersion) ../../../corelibs++-api/lib/$(libName).so
-	ln -s $(PWD)/../../../corelibs++-api/lib/$(libName).a.$(majorVersion).$(minorVersion) ../../../corelibs++-api/lib/$(libName).a.$(majorVersion)
-	ln -s $(PWD)/../../../corelibs++-api/lib/$(libName).a.$(majorVersion).$(minorVersion) ../../../corelibs++-api/lib/$(libName).a
+	cp .libs/$(libName).so.$(majorVersion).$(minorVersion) ../../corelibs++-api/lib
+	cp .libs/$(libName).a.$(majorVersion).$(minorVersion) ../../corelibs++-api/lib
+	rm -rf ../../corelibs++-api/lib/$(libName).so.$(majorVersion)
+	rm -rf ../../corelibs++-api/lib/$(libName).so
+	rm -rf ../../corelibs++-api/lib/$(libName).a.$(majorVersion)
+	rm -rf ../../corelibs++-api/lib/$(libName).a
+	ln -s $(PWD)/../../corelibs++-api/lib/$(libName).so.$(majorVersion).$(minorVersion) ../../corelibs++-api/lib/$(libName).so.$(majorVersion)
+	ln -s $(PWD)/../../corelibs++-api/lib/$(libName).so.$(majorVersion).$(minorVersion) ../../corelibs++-api/lib/$(libName).so
+	ln -s $(PWD)/../../corelibs++-api/lib/$(libName).a.$(majorVersion).$(minorVersion) ../../corelibs++-api/lib/$(libName).a.$(majorVersion)
+	ln -s $(PWD)/../../corelibs++-api/lib/$(libName).a.$(majorVersion).$(minorVersion) ../../corelibs++-api/lib/$(libName).a
