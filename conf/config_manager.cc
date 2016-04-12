@@ -148,7 +148,7 @@ namespace conf {
   ConfigManager::Print() {
     std::cout << "==========================================" << std::endl;
     std::cout << "Configuration" << std::endl;
-    std::cout << "Time: " << ::naeem::date::helper::GetCurrentTime() << std::endl;
+    std::cout << "Time: [" << ::naeem::date::helper::GetCurrentUTCTimeString() << "]" << std::endl;
     std::cout << "==========================================" << std::endl;
     for (std::map<std::string, std::map<std::string, std::string>*>::iterator it = values_.begin();
          it != values_.end();
