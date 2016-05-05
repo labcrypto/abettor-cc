@@ -6,8 +6,8 @@
 #include <cctype>
 #include <locale>
 
-#include <naeem++/compat/types.h>
-#include <naeem++/string/helper.h>
+#include <org/labcrypto/abettor++/compat/types.h>
+#include <org/labcrypto/abettor++/string/helper.h>
 
 
 namespace naeem {

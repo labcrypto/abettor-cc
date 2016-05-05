@@ -7,12 +7,14 @@
 #include <fstream>
 #include <algorithm>
 
-#include <naeem++/conf/config_manager.h>
-#include <naeem++/string/helper.h>
-#include <naeem++/date/helper.h>
+#include <org/labcrypto/abettor++/conf/config_manager.h>
+#include <org/labcrypto/abettor++/string/helper.h>
+#include <org/labcrypto/abettor++/date/helper.h>
 
 
-namespace naeem {
+namespace org {
+namespace labcrypto {
+namespace abettor {
 namespace conf {
   std::map<std::string, std::map<std::string, std::string>*> ConfigManager::values_;
   void
@@ -162,5 +164,7 @@ namespace conf {
     }
     std::cout << "==========================================" << std::endl;
   }
+}
+}
 }
 }

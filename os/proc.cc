@@ -3,9 +3,9 @@
 #include <limits.h>
 #include <unistd.h>
 
-#include <naeem++/compat/types.h>
-#include <naeem++/string/helper.h>
-#include <naeem++/os/proc.h>
+#include <org/labcrypto/abettor++/compat/types.h>
+#include <org/labcrypto/abettor++/string/helper.h>
+#include <org/labcrypto/abettor++/os/proc.h>
 
 
 namespace naeem {
