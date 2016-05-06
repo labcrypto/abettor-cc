@@ -59,10 +59,10 @@ namespace conf {
                   "general", new std::map<std::string, std::string>()));
       uint32_t lineCounter = 1;
       while (std::getline(infile, line)) {
-        std::string trimmedLine = ::naeem::string::helper::Trim(line);
+        std::string trimmedLine = ::org::labcrypto::abettor::string::helper::Trim(line);
         if (trimmedLine.size() > 0) {
-          if (!::naeem::string::helper::StartsWith(trimmedLine, "#")) {
-            if (::naeem::string::helper::StartsWith(trimmedLine, "[")) {
+          if (!::org::labcrypto::abettor::string::helper::StartsWith(trimmedLine, "#")) {
+            if (::org::labcrypto::abettor::string::helper::StartsWith(trimmedLine, "[")) {
               if (trimmedLine.size() <= 2) {
                 std::cout << "ERROR: Invalid section name at line " << lineCounter << "." << std::endl;
                 exit(1);
@@ -75,13 +75,13 @@ namespace conf {
               }
               currentSectionName = sectionName;
             } else {
-              std::vector<std::string> tokens = ::naeem::string::helper::Split(trimmedLine, '=');
+              std::vector<std::string> tokens = ::org::labcrypto::abettor::string::helper::Split(trimmedLine, '=');
               if (tokens.size() != 2) {
                 std::cout << "ERROR: Invalid configuration at line " << lineCounter << "." << std::endl;
                 exit(1);
               }
-              std::string key = ::naeem::string::helper::Trim(tokens[0]);
-              std::string value = ::naeem::string::helper::Trim(tokens[1]);
+              std::string key = ::org::labcrypto::abettor::string::helper::Trim(tokens[0]);
+              std::string value = ::org::labcrypto::abettor::string::helper::Trim(tokens[1]);
               // std::cout << "Adding pair: '" << tokens[0] << "' -> '" << tokens[1] << "'" << std::endl;
               values_[currentSectionName]->insert(std::pair<std::string, std::string>(key, value));
             }
@@ -173,7 +173,7 @@ namespace conf {
   ConfigManager::Print() {
     std::cout << "==========================================" << std::endl;
     std::cout << "Configuration" << std::endl;
-    std::cout << "Time: [" << ::naeem::date::helper::GetCurrentUTCTimeString() << "]" << std::endl;
+    std::cout << "Time: [" << ::org::labcrypto::abettor::date::helper::GetCurrentUTCTimeString() << "]" << std::endl;
     std::cout << "==========================================" << std::endl;
     for (std::map<std::string, std::map<std::string, std::string>*>::iterator it = values_.begin();
          it != values_.end();
