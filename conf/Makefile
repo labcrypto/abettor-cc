@@ -57,7 +57,7 @@ copy_to_api_dir:
 	rm -rf ../../LabCryptoOrg-abettor-cc-api/lib/gcc-amd64/$(libName).so
 	rm -rf ../../LabCryptoOrg-abettor-cc-api/lib/gcc-amd64/$(libName).a.$(majorVersion)
 	rm -rf ../../LabCryptoOrg-abettor-cc-api/lib/gcc-amd64/$(libName).a
-	ln -s $(PWD)/../../LabCryptoOrg-abettor-cc-api/lib/$(libName).so.$(majorVersion).$(minorVersion) ../../LabCryptoOrg-abettor-cc-api/lib/gcc-amd64/$(libName).so.$(majorVersion)
-	ln -s $(PWD)/../../LabCryptoOrg-abettor-cc-api/lib/$(libName).so.$(majorVersion).$(minorVersion) ../../LabCryptoOrg-abettor-cc-api/lib/gcc-amd64/$(libName).so
-	ln -s $(PWD)/../../LabCryptoOrg-abettor-cc-api/lib/$(libName).a.$(majorVersion).$(minorVersion) ../../LabCryptoOrg-abettor-cc-api/lib/gcc-amd64/$(libName).a.$(majorVersion)
-	ln -s $(PWD)/../../LabCryptoOrg-abettor-cc-api/lib/$(libName).a.$(majorVersion).$(minorVersion) ../../LabCryptoOrg-abettor-cc-api/lib/gcc-amd64/$(libName).a
+	ln -s $(PWD)/../../LabCryptoOrg-abettor-cc-api/lib/gcc-amd64/$(libName).so.$(majorVersion).$(minorVersion) ../../LabCryptoOrg-abettor-cc-api/lib/gcc-amd64/$(libName).so.$(majorVersion)
+	ln -s $(PWD)/../../LabCryptoOrg-abettor-cc-api/lib/gcc-amd64/$(libName).so.$(majorVersion).$(minorVersion) ../../LabCryptoOrg-abettor-cc-api/lib/gcc-amd64/$(libName).so
+	ln -s $(PWD)/../../LabCryptoOrg-abettor-cc-api/lib/gcc-amd64/$(libName).a.$(majorVersion).$(minorVersion) ../../LabCryptoOrg-abettor-cc-api/lib/gcc-amd64/$(libName).a.$(majorVersion)
+	ln -s $(PWD)/../../LabCryptoOrg-abettor-cc-api/lib/gcc-amd64/$(libName).a.$(majorVersion).$(minorVersion) ../../LabCryptoOrg-abettor-cc-api/lib/gcc-amd64/$(libName).a
