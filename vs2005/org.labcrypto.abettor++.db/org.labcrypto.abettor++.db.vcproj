@@ -4,7 +4,7 @@
 	Version="8.00"
 	Name="org.labcrypto.abettor++.db"
 	ProjectGUID="{286DEBCD-13F5-40AC-A4CE-BFE7697188C6}"
-	RootNamespace="naeem-corelibs++-db"
+	RootNamespace="org.labcrypto.abettor++.db"
 	>
 	<Platforms>
 		<Platform
