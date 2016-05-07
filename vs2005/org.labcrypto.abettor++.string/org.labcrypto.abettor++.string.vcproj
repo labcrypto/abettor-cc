@@ -2,7 +2,7 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="8.00"
-	Name="naeem-corelibs++-string"
+	Name="org.labcrypto.abettor++.string"
 	ProjectGUID="{B0C7B4E6-276F-4E43-8520-5F50A1E6AA03}"
 	>
 	<Platforms>
@@ -37,7 +37,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="..\..\..\..\corelibs++-api\include"
+				AdditionalIncludeDirectories="..\..\..\..\LabCryptoOrg-abettor-cc-api\include"
 				RuntimeLibrary="3"
 			/>
 			<Tool
@@ -92,7 +92,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="..\..\..\..\corelibs++-api\include"
+				AdditionalIncludeDirectories="..\..\..\..\LabCryptoOrg-abettor-cc-api\include"
 				RuntimeLibrary="2"
 			/>
 			<Tool
@@ -143,7 +143,7 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath="..\..\..\..\corelibs++-api\include\naeem\string\helper.h"
+				RelativePath="..\..\..\LabCryptoOrg-abettor-cc-api\include\org\labcrypto\abettor++\string\helper.h"
 				>
 			</File>
 		</Filter>
