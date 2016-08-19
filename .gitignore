@@ -6,3 +6,4 @@ Release
 *.user
 debug
 release
+build
