@@ -24,7 +24,9 @@
 #include <string.h>
 
 #include <limits.h>
+#ifdef __UNIX__
 #include <unistd.h>
+#endif
 
 #include <org/labcrypto/abettor++/compat/types.h>
 #include <org/labcrypto/abettor++/string/helper.h>
