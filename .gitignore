@@ -7,3 +7,5 @@ Release
 debug
 release
 build
+unix-build
+win32-build
