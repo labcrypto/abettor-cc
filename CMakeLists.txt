@@ -22,9 +22,9 @@ endif()
 
 if (WIN32)
   # Change these paths to whatever that is valid for your system
-  # include_directories("../external-apis/openssl/include")
-  # include_directories("../external-apis/iconv/include")
-  include_directories("../external-apis/pq/include")
+  # include_directories("../ir.ntnaeem.kawthar.lib.external/openssl/include")
+  # include_directories("../ir.ntnaeem.kawthar.lib.external/iconv/include")
+  include_directories("../ir.ntnaeem.kawthar.lib.external/pq/include")
   add_definitions(-D_CRT_SECURE_NO_DEPRECATE)
   add_definitions(-DUNICODE -D_UNICODE)
   add_definitions(-D__WIN32__)

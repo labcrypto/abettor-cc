@@ -37,6 +37,7 @@ namespace org {
 namespace labcrypto {
 namespace abettor {
 namespace os {
+#ifdef __UNIX__
   std::string 
   GetExecDir() {
     char result[PATH_MAX];
@@ -45,6 +46,7 @@ namespace os {
     std::string::size_type pos = execPath.find_last_of("/");
     return execPath.substr(0, pos);
   }
+#endif
 }
 }
 }
