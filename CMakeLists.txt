@@ -5,8 +5,8 @@ project(abettor-cc)
 if (UNIX)
   add_definitions(-D__UNIX__)
   set(BIN_INSTALL_DIR "/usr/bin/" CACHE PATH "")
-  set(HEADERS_INSTALL_DIR "/usr/include")
-  set(LIB_INSTALL_DIR "/usr/lib")
+  set(HEADERS_INSTALL_DIR "/usr/local/include")
+  set(LIB_INSTALL_DIR "/usr/local/lib")
   include_directories("/usr/include/postgresql")
   if (APPLE)
     set(CMAKE_MACOSX_RPATH 1)
@@ -60,25 +60,25 @@ add_library(abettor-cc-unicode STATIC
   ${PROJECT_SOURCE_DIR}/unicode/unicode.cc
 )
 
-# install(DIRECTORY 
-#   ${PROJECT_INCLUDE_DIR}/org 
-#   DESTINATION 
-#   ${HEADERS_INSTALL_DIR} 
-#   FILES_MATCHING 
-#   PATTERN "*.h"
-# )
-# 
-# install(TARGETS
-#   abettor-cc-conf
-#   abettor-cc-date
-#   abettor-cc-db
-#   abettor-cc-os
-#   abettor-cc-string
-#   abettor-cc-unicode
-#   DESTINATION
-#   ${LIB_INSTALL_DIR}
-# )
-# 
+install(DIRECTORY 
+  ${PROJECT_INCLUDE_DIR}/org 
+  DESTINATION 
+  ${HEADERS_INSTALL_DIR} 
+  FILES_MATCHING 
+  PATTERN "*.h"
+)
+ 
+install(TARGETS
+  abettor-cc-conf
+  abettor-cc-date
+  abettor-cc-db
+  abettor-cc-os
+  abettor-cc-string
+  abettor-cc-unicode
+  DESTINATION
+  ${LIB_INSTALL_DIR}
+)
+ 
 # add_custom_target(uninstall
 #   COMMAND rm -rfv ${LIB_INSTALL_DIR}/libabettor-cc*
 #   COMMAND rm -rfv ${HEADERS_INSTALL_DIR}/org/labcrypto/abettor
